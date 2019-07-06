@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/MainView">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal"
+            android:weightSum="100"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+                <TextView
+                    android:id="@+id/blankText1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="3"
+                    android:gravity="end"
+
+                    android:text=""
+                    android:textSize="32sp"
+                    app:fontFamily="sans-serif-medium"
+                    />
+                <TextView
+                    android:id="@+id/letterR"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_weight="7"
+                    android:gravity="start"
+
+                    android:text="@string/R"
+                    android:textSize="32sp"
+                    app:fontFamily="sans-serif-medium"
+                     />
+
+                <SeekBar
+                    android:id="@+id/redSeekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="65"
+
+                    android:gravity="bottom"
+                    android:max="255" />
+
+                <EditText
+                    android:id="@+id/editRedText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="20"
+
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    tools:ignore="LabelFor" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal"
+            android:weightSum="100">
+                <TextView
+                    android:id="@+id/blankText2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="3"
+                    android:gravity="end"
+
+                    android:text=""
+                    android:textSize="32sp"
+                    app:fontFamily="sans-serif-medium"
+                    />
+                <TextView
+                    android:id="@+id/letterG"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="7"
+                    android:gravity="start"
+
+                    android:text="@string/G"
+                    android:textSize="32sp"
+                    app:fontFamily="sans-serif-medium"
+                     />
+
+                <SeekBar
+                    android:id="@+id/greenSeekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="65"
+
+                    android:gravity="bottom"
+                    android:max="255" />
+
+                <EditText
+                    android:id="@+id/editGreenText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="20"
+
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    tools:ignore="LabelFor" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal"
+            android:weightSum="100">
+                <TextView
+                    android:id="@+id/blankText3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="3"
+                    android:gravity="end"
+
+                    android:text=""
+                    android:textSize="32sp"
+                    app:fontFamily="sans-serif-medium"
+                    />
+                <TextView
+                    android:id="@+id/letterB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="7"
+                    android:gravity="start"
+
+                    android:text="@string/B"
+                    android:textSize="32sp"
+                    app:fontFamily="sans-serif-medium"
+                    />
+
+                <SeekBar
+                    android:id="@+id/blueSeekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="65"
+
+                    android:gravity="bottom"
+                    android:max="255" />
+
+                <EditText
+                    android:id="@+id/editBlueText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="20"
+
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    tools:ignore="LabelFor" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal"
+            android:weightSum="100">
+                <TextView
+                    android:id="@+id/blankText4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="3"
+                    android:gravity="end"
+
+                    android:text=""
+                    android:textSize="32sp"
+                    app:fontFamily="sans-serif-medium"
+                    />
+                <TextView
+                    android:id="@+id/brightnessText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+
+                    android:layout_weight="97"
+
+                    android:text="@string/brightness"
+                    android:textSize="32sp"
+                    app:fontFamily="sans-serif-medium"
+                    />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal"
+            android:weightSum="100">
+                <TextView
+                    android:id="@+id/blankText5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="10"
+                    android:gravity="end"
+
+                    android:text=""
+                    android:textSize="32dp"
+                    app:fontFamily="sans-serif-medium"
+                    />
+                <SeekBar
+                    android:id="@+id/brightnessSeekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="65"
+
+                    android:gravity="bottom"
+                    android:max="100" />
+
+                <EditText
+                    android:id="@+id/editBrightness"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="20"
+
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    tools:ignore="LabelFor" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/onOffButton"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/onOff"
+            app:layout_constraintStart_toStartOf="@+id/brightnessSeekBar"
+            app:layout_constraintTop_toBottomOf="@+id/brightnessSeekBar" />
+
+        <Button
+            android:id="@+id/lightDarkButton"
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:text="@string/darkLight"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="@+id/onOffButton"
+            app:layout_constraintTop_toBottomOf="@+id/onOffButton"
+
+            />
+        <Button
+            android:id="@+id/rightLeft"
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:text="@string/rightLeft"
+            app:layout_constraintTop_toBottomOf="@+id/lightDarkButton"
+            app:layout_constraintStart_toStartOf="@+id/lightDarkButton"
+            />
+        <ToggleButton
+            android:id="@+id/connectButton"
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:textOff="@string/blueConnect"
+            android:textOn="Bluetooth"
+            app:layout_constraintStart_toStartOf="@+id/rightLeft"
+            app:layout_constraintTop_toBottomOf="@+id/rightLeft"
+            />
+</LinearLayout>
+</ScrollView>

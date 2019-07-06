@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AITLabSmartPurse</string>
+    <string name="R">R</string>
+    <string name="G">G</string>
+    <string name="B">B</string>
+    <string name="colorSelect">Change Color</string>
+    <string name="brightness">Brightness</string>
+    <integer name="redValue">0</integer>
+    <integer name="blueValue">0</integer>
+    <integer name="greenValue">0</integer>
+    <integer name="brightnessValue">0</integer>
+    <string name="onOff">On/Off</string>
+    <string name="darkLight">Dark/Light</string>
+    <string name="rightLeft">Right/Left</string>
+    <string name="blueConnect">Bluetooth</string>
+</resources>
+
