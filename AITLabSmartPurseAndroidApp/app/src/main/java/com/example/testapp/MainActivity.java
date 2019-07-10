@@ -33,6 +33,10 @@ if connection occurs then output "purse connected"
 when bluetooth button is in on configuration:
 if connected to purse, then disconnect
 then turn off bluetooth, output, "bluetooth disabled"
+===============
+todo: need add to a "Connect to Purse" button, and add a case if the purse is disconnected while the app is open.
+todo: recieve data from arduino
+todo: preview colour data in app.
 
 */
 
@@ -119,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
     private int noBT = 0; //if 1, then there's no bluetooth on the phone.
 
     final Context ctx = this;
+    BluetoothSocket btSocket = null;
 
 
     @Override
@@ -180,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                                 btOutputStream.write(redoutput2);
                                 btOutputStream.write(0b00000000);
 
-                            }catch(Exception e){
+                            }catch(IOException e){
                                 Log.e("error!", ""+e);
                             }
                         }
@@ -248,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
                                 btOutputStream.write(greenoutput2);
                                 btOutputStream.write(0b00000000);
 
-                            }catch(Exception e){
+                            }catch(IOException e){
                                 Log.e("error!", ""+e);
                             }
                         }
@@ -317,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
                                 btOutputStream.write(blueoutput2);
                                 btOutputStream.write(0b00000000);
 
-                            }catch(Exception e){
+                            }catch(IOException e){
                                 Log.e("error!", ""+e);
                             }
                         }
@@ -384,7 +389,7 @@ public class MainActivity extends AppCompatActivity {
                                 btOutputStream.write(brightoutput2);
                                 btOutputStream.write(0b00000000);
 
-                            }catch(Exception e){
+                            }catch(IOException e){
                                 Log.e("error!", ""+e);
                             }
                         }
@@ -563,6 +568,25 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt(BLUE_PROGRESS, savedProgressBlue);
         editor.putInt(BRIGHT_PROGRESS, savedProgressBright);
         editor.commit();
+
+        resetConnection();
+    }
+
+    private void resetConnection(){
+        if (btInStream != null) {
+            try {btInStream.close();} catch (Exception e) {}
+            btInStream = null;
+        }
+
+        if (btOutputStream != null) {
+            try {btOutputStream.close();} catch (Exception e) {}
+            btOutputStream = null;
+        }
+
+        if (btSocket != null) {
+            try {btSocket.close();} catch (Exception e) {}
+            btSocket = null;
+        }
     }
 
 
@@ -658,7 +682,7 @@ public class MainActivity extends AppCompatActivity {
                     if(deviceNamesList.indexOf("AITSmartPurse") < 0){
                         Toast.makeText(ctx, "AITSmartPurse is not a bonded device!",Toast.LENGTH_LONG).show();
                     }else {
-                        BluetoothSocket btSocket = null;
+
                         try{
                             Log.d("miau3", ""+savedProgressRed);
                             BluetoothDevice device = (BluetoothDevice) devices[deviceNamesList.indexOf("AITSmartPurse")];

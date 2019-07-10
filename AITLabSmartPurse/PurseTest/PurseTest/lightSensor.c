@@ -5,6 +5,87 @@
  *  Author: Rawr
  */ 
 #include"include.h"
+/* 
+Light sensor code for veml7700 on an adafruit board. 
+
+
+*/
+
+void veml7700_Write(uint8_t c, uint16_t data){
+	uint8_t veml7700Address = 0x20;	//address + write bit, write bit is 0, address is 0b0010000 then add 0x10
+	twiStart();
+	twiWrite(veml7700Address); 
+	//command codes are 16 bits long, but only 1 byte is used.
+	twiWrite(0x00);
+	twiWrite(c);
+	twiWrite(data>>8);//send MSB
+	twiWrite(data); //send LSB
+	twiStop();
+};
+
+uint16_t veml7700_Read(uint8_t c){
+	uint16_t returnValue = 0;
+	uint8_t veml7700AddressWr = 0x20;
+	uint8_t veml7700AddressRd = 0x21; //address + read bit, 0b0010000 + 0x01
+	
+	twiStart();
+	twiWrite(veml7700AddressWr);
+	twiWrite(0x00);
+	twiWrite(c);
+	twiStart();
+	twiWrite(veml7700AddressRd);
+	returnValue |= twiReadAck();
+	returnValue = returnValue << 8;
+	returnValue |= twiReadNoAck();
+	twiStop();
+	return returnValue;
+}
+
+void veml7700Init(){
+	
+	//set register 0,
+	//bits 15-13 are 0, 
+	//bits 12-11 set ALS gain to lowest setting to 1/8 gain
+	//will be changed if lower than 100 counts than increase gain.
+	//0b10 gives a 1/8 gain.
+	//bit 10 is set to 0.
+	//bits 9-6 are the ALS integration time setting.
+	//since we don't need very high accuracy for this application, the integration time
+	//is going to be very fast, 25mS.  This translates to 0b1100
+	//bits 5 and 4 set the ALS persistence protect number setting.
+	//used for interrupts with the light sensor, set to 0b00
+	//bits 3 and 2 are set to 0
+	//bit 1 enables interrupts, set to 0 to disable.
+	//bit 0 "shuts down" the light sensor when set to 1 to save power.
+	//send command 0b000 10 0 1100 00 00 0 0
+	//0b0001001100000000 = 0b0001 0011 0000 0000 = 0x1300
+	veml7700_Write(0x00, 0x1300);
+	
+	return;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 Pseudocode for light sensor control:
 1) When purse is opened, send power-on command to the Control Register.
@@ -22,8 +103,8 @@ Do this once on uC initialization:
 Configure the timing register:
 since the gain can be done in the uC, check what values that come from the
 sensor to see what kind of values are obtained from the same light source.
-
 */
+/*
 void TSL2561_command(uint8_t c){
 	uint8_t address = 0x39;
 	
@@ -57,3 +138,5 @@ uint8_t lightSensorInit(){
 	
 	return purple;
 }
+
+*/

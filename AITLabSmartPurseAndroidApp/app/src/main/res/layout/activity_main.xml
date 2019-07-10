@@ -286,5 +286,13 @@
             app:layout_constraintStart_toStartOf="@+id/rightLeft"
             app:layout_constraintTop_toBottomOf="@+id/rightLeft"
             />
+        <Button
+            android:id="@+id/connectPurse"
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:text="@string/connectPurse"
+            app:layout_constraintTop_toBottomOf="@+id/connectButton"
+            app:layout_constraintStart_toStartOf="@+id/lightDarkButton"
+            />
 </LinearLayout>
 </ScrollView>

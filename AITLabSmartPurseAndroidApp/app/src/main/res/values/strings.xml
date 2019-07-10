@@ -13,5 +13,6 @@
     <string name="darkLight">Dark/Light</string>
     <string name="rightLeft">Right/Left</string>
     <string name="blueConnect">Bluetooth</string>
+    <string name="connectPurse">Connect</string>
 </resources>
 

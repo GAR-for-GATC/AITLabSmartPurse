@@ -21,7 +21,7 @@ const char FORWARD_SLASH[4];
 #define Bit_shift32(ptr)			(uint32_t)(	    ((uint32_t)*ptr) | (  (uint32_t)(*(ptr+1)) << 8  )	| (  (uint32_t)(*(ptr+2))  << 16  )  |  (  (uint32_t)(*(ptr+3)) << 24  )  )
 
 #define ONEBYTE sizeof(unsigned char)
-
+#define F_CPU 8000000 //clk is at 8Mhz at 3V in this project
 
 
 
